@@ -1,0 +1,46 @@
+version: '3'
+
+networks:
+    test:
+        driver: bridge
+
+services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./:/var/www
+            - ./_docker/nginx/conf.d:/etc/nginx/conf.d
+        ports:
+            - "8876:80"
+        depends_on:
+            - app
+        networks:
+            - test
+        container_name: laratest_nginx
+
+    app:
+        build:
+            context: .
+            dockerfile: _docker/app/Dockerfile
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - db
+        networks:
+            - test
+        container_name: laratest_app
+
+    db:
+        image: mysql:8.0
+        restart: always
+        volumes:
+            - ./tmp/db:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: laratest
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "8222:3306"
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+        networks:
+            - test
+        container_name: laratest_db
