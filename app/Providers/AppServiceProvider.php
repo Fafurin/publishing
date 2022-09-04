@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Models\Customer;
 use App\Models\Format;
+use App\Models\Type;
 use App\Observers\Admin\CustomerObserver;
 use App\Observers\Admin\FormatObserver;
+use App\Observers\Admin\TypeObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,15 +32,26 @@ class AppServiceProvider extends ServiceProvider
                          \App\Http\Handlers\Admin\Customer\DeleteHandler::class);
 
         $this->app->bind(\App\Http\Handlers\Admin\Format\ListHandlerContract::class,
-            \App\Http\Handlers\Admin\Format\ListHandler::class);
+                         \App\Http\Handlers\Admin\Format\ListHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Format\StoreHandlerContract::class,
-            \App\Http\Handlers\Admin\Format\StoreHandler::class);
+                         \App\Http\Handlers\Admin\Format\StoreHandler::class);
         $this->app->bind(\App\Http\Commands\Admin\Format\CreateCommandHandlerContract::class,
-            \App\Http\Commands\Admin\Format\CreateCommandHandler::class);
+                         \App\Http\Commands\Admin\Format\CreateCommandHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Format\UpdateHandlerContract::class,
-            \App\Http\Handlers\Admin\Format\UpdateHandler::class);
+                         \App\Http\Handlers\Admin\Format\UpdateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Format\DeleteHandlerContract::class,
-            \App\Http\Handlers\Admin\Format\DeleteHandler::class);
+                         \App\Http\Handlers\Admin\Format\DeleteHandler::class);
+
+        $this->app->bind(\App\Http\Handlers\Admin\Type\ListHandlerContract::class,
+                         \App\Http\Handlers\Admin\Type\ListHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Type\StoreHandlerContract::class,
+                         \App\Http\Handlers\Admin\Type\StoreHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\Type\CreateCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\Type\CreateCommandHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Type\UpdateHandlerContract::class,
+                         \App\Http\Handlers\Admin\Type\UpdateHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Type\DeleteHandlerContract::class,
+                         \App\Http\Handlers\Admin\Type\DeleteHandler::class);
     }
 
     /**
@@ -51,5 +64,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         Customer::observe(CustomerObserver::class);
         Format::observe(FormatObserver::class);
+        Type::observe(TypeObserver::class);
     }
 }

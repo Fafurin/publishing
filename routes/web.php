@@ -31,14 +31,14 @@ Route::group(['prefix' => 'admin'], function (){
         Route::delete('/{format}', 'DeleteController')->name('admin.format.delete');
     });
 
-    Route::group(['prefix' => 'type'], function (){
-        Route::get('/', [TypeController::class, 'index'])->name('admin.type.index');
-        Route::get('/create', [TypeController::class, 'create'])->name('admin.type.create');
-        Route::post('/', [TypeController::class, 'store'])->name('admin.type.store');
-        Route::get('/{type}', [TypeController::class, 'show'])->name('admin.type.show');
-        Route::get('/{type}/edit', [TypeController::class, 'edit'])->name('admin.type.edit');
-        Route::patch('/{type}', [TypeController::class, 'update'])->name('admin.type.update');
-        Route::delete('/{type}', [TypeController::class, 'delete'])->name('admin.type.delete');
+    Route::group(['namespace' => 'Type', 'prefix' => 'type'], function (){
+        Route::get('/', 'ListController')->name('admin.type.index');
+        Route::get('/create', 'CreateController')->name('admin.type.create');
+        Route::post('/', 'StoreController')->name('admin.type.store');
+        Route::get('/{type}','ShowController')->name('admin.type.show');
+        Route::get('/{type}/edit', 'EditController')->name('admin.type.edit');
+        Route::patch('/{type}', 'UpdateController')->name('admin.type.update');
+        Route::delete('/{type}', 'DeleteController')->name('admin.type.delete');
     });
 
     Route::group(['namespace' => 'Customer', 'prefix' => 'customer'], function (){
