@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\FormatController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
@@ -23,14 +21,14 @@ Route::group(['prefix' => 'admin'], function (){
         Route::delete('/{order}', [OrderController::class, 'delete'])->name('admin.order.delete');
     });
 
-    Route::group(['prefix' => 'format'], function (){
-        Route::get('/', [FormatController::class, 'index'])->name('admin.format.index');
-        Route::get('/create', [FormatController::class, 'create'])->name('admin.format.create');
-        Route::post('/', [FormatController::class, 'store'])->name('admin.format.store');
-        Route::get('/{format}', [FormatController::class, 'show'])->name('admin.format.show');
-        Route::get('/{format}/edit', [FormatController::class, 'edit'])->name('admin.format.edit');
-        Route::patch('/{format}', [FormatController::class, 'update'])->name('admin.format.update');
-        Route::delete('/{format}', [FormatController::class, 'delete'])->name('admin.format.delete');
+    Route::group(['namespace' => 'Format', 'prefix' => 'format'], function (){
+        Route::get('/', 'ListController')->name('admin.format.index');
+        Route::get('/create', 'CreateController')->name('admin.format.create');
+        Route::post('/', 'StoreController')->name('admin.format.store');
+        Route::get('/{format}', 'ShowController')->name('admin.format.show');
+        Route::get('/{format}/edit', 'EditController')->name('admin.format.edit');
+        Route::patch('/{format}', 'UpdateController')->name('admin.format.update');
+        Route::delete('/{format}', 'DeleteController')->name('admin.format.delete');
     });
 
     Route::group(['prefix' => 'type'], function (){
