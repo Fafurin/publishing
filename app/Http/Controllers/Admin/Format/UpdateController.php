@@ -12,10 +12,10 @@ class UpdateController implements UpdateControllerContract
     {
     }
 
-    public function __invoke(Format $customer): View
+    public function __invoke(Format $format): View
     {
-        $this->handler->handle($customer);
-        return view('admin.customer.show', compact('customer'));
+        $this->handler->handle($format);
+        return view('admin.format.show', compact('format'));
     }
 
 }
