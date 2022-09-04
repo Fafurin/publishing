@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        Type::factory(20)->create();
-//        Format::factory(10)->create();
+        Type::factory(20)->create();
+        Format::factory(10)->create();
         Order::factory(30)->create();
     }
 }
