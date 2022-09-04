@@ -4,7 +4,7 @@ namespace App\Http\Commands\Admin\Customer;
 
 use App\Models\Customer;
 
-class CreateCustomerCommandHandler implements CreateCustomerCommandHandlerContract
+class CreateCommandHandler implements CreateCommandHandlerContract
 {
 
     public function handle(array $data)

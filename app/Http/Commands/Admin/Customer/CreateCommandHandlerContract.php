@@ -2,7 +2,7 @@
 
 namespace App\Http\Commands\Admin\Customer;
 
-interface CreateCustomerCommandHandlerContract
+interface CreateCommandHandlerContract
 {
     public function handle(array $data);
 }
