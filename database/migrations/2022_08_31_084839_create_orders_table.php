@@ -15,12 +15,16 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('number')->nullable();
+            $table->foreignId('customer_id')
+                ->index()
+                ->constrained('customers');
             $table->foreignId('book_id')
                 ->index()
                 ->constrained('books');
             $table->enum('payment', ['contract', 'receipt'])->default('contract');
             $table->enum('status', ['standing_by', 'in_work', 'in_archive'])->default('standing_by');
             $table->string('deadline')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

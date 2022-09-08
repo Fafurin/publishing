@@ -13,11 +13,6 @@ class Book extends Model
 
     protected $guarded = [];
 
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class);
-    }
-
     public function format()
     {
         return $this->belongsTo(Format::class);

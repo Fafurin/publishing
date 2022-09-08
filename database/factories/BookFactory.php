@@ -19,10 +19,8 @@ class BookFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(5),
-            'customer_id' => Customer::factory()->create(),
             'type_id' => $this->faker->numberBetween(1, 20),
             'format_id' => $this->faker->numberBetween(1, 10),
-            'description' => $this->faker->paragraph(2, true),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime(),
         ];

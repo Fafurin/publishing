@@ -16,16 +16,12 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('customer_id')
-                ->index()
-                ->constrained('customers');
             $table->foreignId('type_id')
                 ->index()
                 ->constrained('types');
             $table->foreignId('format_id')
                 ->index()
                 ->constrained('formats');
-            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
