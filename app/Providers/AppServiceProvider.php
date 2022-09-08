@@ -24,21 +24,16 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(\App\Http\Handlers\Admin\Customer\ListHandlerContract::class,
                          \App\Http\Handlers\Admin\Customer\ListHandler::class);
-        $this->app->bind(\App\Http\Handlers\Admin\Customer\StoreHandlerContract::class,
-                         \App\Http\Handlers\Admin\Customer\StoreHandler::class);
-        $this->app->bind(\App\Http\Commands\Admin\Customer\CreateCommandHandlerContract::class,
-                         \App\Http\Commands\Admin\Customer\CreateCommandHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Customer\UpdateHandlerContract::class,
                          \App\Http\Handlers\Admin\Customer\UpdateHandler::class);
-        $this->app->bind(\App\Http\Handlers\Admin\Customer\DeleteHandlerContract::class,
-                         \App\Http\Handlers\Admin\Customer\DeleteHandler::class);
+
 
         $this->app->bind(\App\Http\Handlers\Admin\Format\ListHandlerContract::class,
                          \App\Http\Handlers\Admin\Format\ListHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Format\StoreHandlerContract::class,
                          \App\Http\Handlers\Admin\Format\StoreHandler::class);
-        $this->app->bind(\App\Http\Commands\Admin\Format\CreateCommandHandlerContract::class,
-                         \App\Http\Commands\Admin\Format\CreateCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\CreateFormatCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\CreateFormatCommandHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Format\UpdateHandlerContract::class,
                          \App\Http\Handlers\Admin\Format\UpdateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Format\DeleteHandlerContract::class,
@@ -48,8 +43,8 @@ class AppServiceProvider extends ServiceProvider
                          \App\Http\Handlers\Admin\Type\ListHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Type\StoreHandlerContract::class,
                          \App\Http\Handlers\Admin\Type\StoreHandler::class);
-        $this->app->bind(\App\Http\Commands\Admin\Type\CreateCommandHandlerContract::class,
-                         \App\Http\Commands\Admin\Type\CreateCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\CreateTypeCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\CreateTypeCommandHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Type\UpdateHandlerContract::class,
                          \App\Http\Handlers\Admin\Type\UpdateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Type\DeleteHandlerContract::class,
@@ -61,10 +56,14 @@ class AppServiceProvider extends ServiceProvider
                          \App\Http\Handlers\Admin\Order\CreateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Order\StoreHandlerContract::class,
                          \App\Http\Handlers\Admin\Order\StoreHandler::class);
-        $this->app->bind(\App\Http\Commands\Admin\Order\CreateCommandHandlerContract::class,
-                         \App\Http\Commands\Admin\Order\CreateCommandHandler::class);
-        $this->app->bind(\App\Http\Commands\Admin\Order\UpdateCommandHandlerContract::class,
-                         \App\Http\Commands\Admin\Order\UpdateCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\CreateOrderCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\CreateOrderCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\UpdateOrderCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\UpdateOrderCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\CreateBookCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\CreateBookCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\CreateCustomerCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\CreateCustomerCommandHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Order\UpdateHandlerContract::class,
                          \App\Http\Handlers\Admin\Order\UpdateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Order\DeleteHandlerContract::class,

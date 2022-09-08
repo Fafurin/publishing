@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Commands\Admin\Order;
+namespace App\Http\Commands\Admin;
 
 use App\Models\Order;
 
-class UpdateCommandHandler implements UpdateCommandHandlerContract
+class CreateOrderCommandHandler implements CreateOrderCommandHandlerContract
 {
 
     public function __construct(
-        public CreateCustomerCommandHandler $createCustomerHandler,
-        public CreateBookCommandHandler $createBookHandler
+        public CreateCustomerCommandHandlerContract $createCustomerHandler,
+        public CreateBookCommandHandlerContract $createBookHandler
     )
     {
     }
 
-    public function handle(Order $order, array $data)
+    public function handle(array $data)
     {
         $customer = $this->createCustomerHandler->handle($data);
         $book = $this->createBookHandler->handle($data);
@@ -28,7 +28,7 @@ class UpdateCommandHandler implements UpdateCommandHandlerContract
             'description' => $data['description'],
         ];
 
-        $order->update($orderData);
+        Order::firstOrCreate($orderData);
         unset($orderData);
     }
 }

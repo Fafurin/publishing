@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Commands\Admin\Order;
+namespace App\Http\Commands\Admin;
 
 use App\Models\Book;
 use App\Models\BooksFiles;
 use App\Models\OutputInformation;
 use Illuminate\Support\Facades\Storage;
 
-class CreateBookCommandHandler
+class CreateBookCommandHandler implements CreateBookCommandHandlerContract
 {
-    public function handle(array $data): Book
+    public function handle(array $data)
     {
         $outputInformation = [
             'isbn' => $data['isbn'],

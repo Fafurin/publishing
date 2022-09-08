@@ -20,13 +20,21 @@
 
                         <div class="form-group">
                             <label>Вид издания
-                                <input type="text" value="{{ $order->book->type->title ?? old('type') }}" name="type"
-                                       class="form-control">
+                                <select name="type_id" class="form-control select2" style="width: 100%;">
+                                    @foreach($types as $type)
+                                        <option value="{{ $type->id }}"
+                                        {{ $type->id == $order->book->type_id ? 'selected' : ''}}>
+                                            {{ $type->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </label>
-                            @error('type')
+                            @error('type_id')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <a class="btn btn-info mb-4" href="{{ route('admin.type.create') }}">Создать вид
+                            издания</a>
 
                         <div class="form-group">
                             <label>Формат издания

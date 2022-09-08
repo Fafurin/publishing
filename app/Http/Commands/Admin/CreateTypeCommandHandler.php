@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Commands\Admin\Type;
+namespace App\Http\Commands\Admin;
 
 use App\Models\Type;
 
-class CreateCommandHandler implements CreateCommandHandlerContract
+class CreateTypeCommandHandler implements CreateTypeCommandHandlerContract
 {
 
     public function handle(array $data)

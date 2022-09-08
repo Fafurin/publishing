@@ -2,12 +2,12 @@
 
 namespace App\Http\Handlers\Admin\Type;
 
-use App\Http\Commands\Admin\Type\CreateCommandHandlerContract;
+use App\Http\Commands\Admin\CreateTypeCommandHandlerContract;
 use App\Http\Requests\TypeRequest;
 
 class StoreHandler implements StoreHandlerContract
 {
-    public function __construct(public TypeRequest $request, public CreateCommandHandlerContract $handler)
+    public function __construct(public TypeRequest $request, public CreateTypeCommandHandlerContract $handler)
     {
     }
 

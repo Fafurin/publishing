@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Commands\Admin\Order;
+namespace App\Http\Commands\Admin;
 
 use App\Models\Customer;
 
-class CreateCustomerCommandHandler
+class CreateCustomerCommandHandler implements CreateCustomerCommandHandlerContract
 {
-    public function handle(array $data): Customer
+    public function handle(array $data)
     {
         $customerData = [
             'name' => $data['name'],
