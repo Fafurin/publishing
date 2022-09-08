@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\Customer;
 use App\Models\Format;
+use App\Models\Order;
 use App\Models\Type;
 use App\Observers\Admin\CustomerObserver;
 use App\Observers\Admin\FormatObserver;
+use App\Observers\Admin\OrderObserver;
 use App\Observers\Admin\TypeObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -52,6 +54,21 @@ class AppServiceProvider extends ServiceProvider
                          \App\Http\Handlers\Admin\Type\UpdateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Type\DeleteHandlerContract::class,
                          \App\Http\Handlers\Admin\Type\DeleteHandler::class);
+
+        $this->app->bind(\App\Http\Handlers\Admin\Order\ListHandlerContract::class,
+                         \App\Http\Handlers\Admin\Order\ListHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Order\CreateHandlerContract::class,
+                         \App\Http\Handlers\Admin\Order\CreateHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Order\StoreHandlerContract::class,
+                         \App\Http\Handlers\Admin\Order\StoreHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\Order\CreateCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\Order\CreateCommandHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\Order\UpdateCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\Order\UpdateCommandHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Order\UpdateHandlerContract::class,
+                         \App\Http\Handlers\Admin\Order\UpdateHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Order\DeleteHandlerContract::class,
+                         \App\Http\Handlers\Admin\Order\DeleteHandler::class);
     }
 
     /**
@@ -65,5 +82,6 @@ class AppServiceProvider extends ServiceProvider
         Customer::observe(CustomerObserver::class);
         Format::observe(FormatObserver::class);
         Type::observe(TypeObserver::class);
+        Order::observe(OrderObserver::class);
     }
 }

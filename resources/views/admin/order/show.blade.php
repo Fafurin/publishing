@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0">{{$order->title}}</h1>
+                        <h1 class="m-0">{{$order->book->title}}</h1>
                         <a class="ml-3 text-success"
                            href="{{route('admin.order.edit', $order->id)}}">
                             <i class="fas fa-pencil-alt"></i>
@@ -50,21 +50,45 @@
                                     </tr>
                                     <tr>
                                         <th>Формат издания</th>
-                                        <td>{{ $order->book->format->title }}</td>
+                                        <td>{{ $order->book->format->title }} ({{ $order->book->format->size }})</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Оплата</th>
+                                        <td>{{ $order->payment }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Статус заказа</th>
+                                        <td>{{ $order->status }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Сроки</th>
+                                        <td>{{ $order->deadline }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>ISBN</th>
+                                        <td>{{ $order->book->outputInformation->isbn }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Тираж</th>
+                                        <td>{{ $order->book->outputInformation->circulation }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Комментарии к заказу</th>
+                                        <td>{{ $order->description }}</td>
                                     </tr>
                                     <tr>
                                         <th>Заказчик</th>
                                         <td>
-                                            <a href="{{route('admin.customer.show', $order->book->customer->id)}}">{{ $order->book->customer->name }}</a>
+                                            <a href="{{route('admin.customer.show', $order->customer->id)}}">{{ $order->customer->name }}</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Телефон</th>
-                                        <td>{{ $order->book->customer->phone }}</td>
+                                        <td>{{ $order->customer->phone }}</td>
                                     </tr>
                                     <tr>
                                         <th>E-mail</th>
-                                        <td>{{ $order->book->customer->email }}</td>
+                                        <td>{{ $order->customer->email }}</td>
                                     </tr>
                                     <tr>
                                         <th>Файлы</th>

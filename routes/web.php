@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,14 +9,14 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function (){
     Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main.index');
 
-    Route::group(['prefix' => 'order'], function (){
-        Route::get('/', [OrderController::class, 'index'])->name('admin.order.index');
-        Route::get('/create', [OrderController::class, 'create'])->name('admin.order.create');
-        Route::post('/', [OrderController::class, 'store'])->name('admin.order.store');
-        Route::get('/{order}', [OrderController::class, 'show'])->name('admin.order.show');
-        Route::get('/{order}/edit', [OrderController::class, 'edit'])->name('admin.order.edit');
-        Route::patch('/{order}', [OrderController::class, 'update'])->name('admin.order.update');
-        Route::delete('/{order}', [OrderController::class, 'delete'])->name('admin.order.delete');
+    Route::group(['namespace' => 'Order', 'prefix' => 'order'], function (){
+        Route::get('/', 'ListController')->name('admin.order.index');
+        Route::get('/create','CreateController')->name('admin.order.create');
+        Route::post('/', 'StoreController')->name('admin.order.store');
+        Route::get('/{order}', 'ShowController')->name('admin.order.show');
+        Route::get('/{order}/edit', 'EditController')->name('admin.order.edit');
+        Route::patch('/{order}', 'UpdateController')->name('admin.order.update');
+        Route::delete('/{order}', 'DeleteController')->name('admin.order.delete');
     });
 
     Route::group(['namespace' => 'Format', 'prefix' => 'format'], function (){

@@ -27,7 +27,7 @@
                                             <td>{{ $order->book->title }}</td>
                                             <td>{{ $order->book->type->title }}</td>
                                             <td>{{ $order->book->format->title }}</td>
-                                            <td><a href="{{route('admin.customer.show', $order->book->customer->id)}}">{{ $order->book->customer->name }}</a></td>
+                                            <td><a href="{{route('admin.customer.show', $order->customer->id)}}">{{ $order->customer->name }}</a></td>
                                             <td>
                                                 <a href="{{route('admin.order.show', $order->id)}}">
                                                     <i class="far fa-eye"></i>

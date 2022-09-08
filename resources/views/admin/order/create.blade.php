@@ -18,17 +18,23 @@
 
                         <div class="form-group">
                             <label>Вид издания
-                                <input type="text" value="{{ old('type') }}" name="type" class="form-control">
+                                <select name="type_id" class="form-control select2" style="width: 100%;">
+                                    @foreach($data['types'] as $type)
+                                        <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                    @endforeach
+                                </select>
                             </label>
-                            @error('type')
+                            @error('type_id')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+                        <a class="btn btn-info mb-4" href="{{ route('admin.type.create') }}">Создать вид
+                            издания</a>
 
                         <div class="form-group">
                             <label>Формат издания
                                 <select name="format_id" class="form-control select2" style="width: 100%;">
-                                    @foreach($formats as $format)
+                                    @foreach($data['formats'] as $format)
                                         <option value="{{ $format->id }}">{{ $format->title }}</option>
                                     @endforeach
                                 </select>
@@ -97,9 +103,6 @@
                                     </div>
                                 </div>
                             </label>
-                            @error('main_image')
-                            <div class="text-danger">{{$message}}</div>
-                            @enderror
                         </div>
 
                     </div>
@@ -135,9 +138,7 @@
 
                 <div class="form-group">
                     <label>Комментарии к заказу
-                        <textarea name="description" cols="120" rows="2" class="form-control">
-                    {{ old('description') }}
-                </textarea>
+                        <textarea name="description" cols="120" rows="2" class="form-control">{{ old('description') }}</textarea>
                     </label>
                     @error('description')
                     <div class="text-danger">{{$message}}</div>
