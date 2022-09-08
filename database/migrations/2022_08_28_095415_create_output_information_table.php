@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('output_information', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id')
-                ->index()
-                ->constrained('books');
             $table->string('isbn')->nullable();
             $table->integer('circulation')->nullable();
             $table->date('publication_date')->nullable();

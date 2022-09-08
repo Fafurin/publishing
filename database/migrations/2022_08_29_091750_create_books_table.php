@@ -22,6 +22,9 @@ return new class extends Migration
             $table->foreignId('format_id')
                 ->index()
                 ->constrained('formats');
+            $table->foreignId('output_information_id')
+                ->index()
+                ->constrained('output_information');
             $table->timestamps();
         });
     }

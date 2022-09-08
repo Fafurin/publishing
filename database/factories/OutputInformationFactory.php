@@ -17,7 +17,11 @@ class OutputInformationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'isbn' => $this->faker->isbn13(),
+            'circulation' => $this->faker->numberBetween(50,2000),
+            'publication_date' => $this->faker->date(),
+            'conv-print_sheets' => $this->faker->randomFloat(2, 1, 100),
+            'publishing_sheets' => $this->faker->randomFloat(2, 1, 100),
         ];
     }
 }

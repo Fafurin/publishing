@@ -25,7 +25,7 @@ class Book extends Model
 
     public function outputInformation()
     {
-        return $this->hasOne(OutputInformation::class);
+        return $this->belongsTo(OutputInformation::class);
     }
 
     public function booksFiles()
