@@ -4,8 +4,7 @@
         <section class="content ml-3">
             <h3>Изменить формат</h3>
             <div class="row">
-                <form action="{{ route('admin.format.update', $format->id) }}" method="POST"
-                      enctype="multipart/form-data">
+                <form action="{{ route('admin.format.update', $format->id) }}" method="POST">
                     @csrf
                     @method('patch')
                     <div class="form-group">

@@ -16,7 +16,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'type' => 'required|string',
+            'type_id' => 'required|integer|exists:types,id',
             'format_id' => 'required|integer|exists:formats,id',
             'deadline' => 'nullable|string',
             'payment' => 'required|string',
@@ -27,8 +27,8 @@ class OrderRequest extends FormRequest
             'name' => 'required|string',
             'phone' => 'required|string',
             'email' => 'nullable|string',
-            'files' => 'required|array',
-            'files.*' => 'required|file'
+            'files' => 'array',
+            'files.*' => 'file'
         ];
     }
 }

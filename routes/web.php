@@ -41,12 +41,9 @@ Route::group(['prefix' => 'admin'], function (){
 
     Route::group(['namespace' => 'Customer', 'prefix' => 'customer'], function (){
         Route::get('/', 'ListController')->name('admin.customer.index');
-        Route::get('/create', 'CreateController')->name('admin.customer.create');
-        Route::post('/', 'StoreController')->name('admin.customer.store');
         Route::get('/{customer}', 'ShowController')->name('admin.customer.show');
         Route::get('/{customer}/edit', 'EditController')->name('admin.customer.edit');
         Route::patch('/{customer}', 'UpdateController')->name('admin.customer.update');
-        Route::delete('/{customer}', 'DeleteController')->name('admin.customer.delete');
     });
 });
 

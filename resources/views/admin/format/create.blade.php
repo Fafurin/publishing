@@ -4,9 +4,8 @@
         <section class="content">
             <h3>Новый формат</h3>
             <div class="row">
-                <form action="{{ route('admin.format.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.format.store') }}" method="POST">
                     @csrf
-
                     <div class="form-group">
                         <input type="text" value="{{ old('title') }}" name="title" class="form-control"
                                placeholder="Название">
