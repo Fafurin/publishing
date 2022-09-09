@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Models\Customer;
 use App\Models\Format;
 use App\Models\Order;
+use App\Models\Position;
 use App\Models\Type;
 use App\Observers\Admin\CustomerObserver;
 use App\Observers\Admin\FormatObserver;
 use App\Observers\Admin\OrderObserver;
+use App\Observers\Admin\PositionObserver;
 use App\Observers\Admin\TypeObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -26,7 +28,6 @@ class AppServiceProvider extends ServiceProvider
                          \App\Http\Handlers\Admin\Customer\ListHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Customer\UpdateHandlerContract::class,
                          \App\Http\Handlers\Admin\Customer\UpdateHandler::class);
-
 
         $this->app->bind(\App\Http\Handlers\Admin\Format\ListHandlerContract::class,
                          \App\Http\Handlers\Admin\Format\ListHandler::class);
@@ -68,6 +69,17 @@ class AppServiceProvider extends ServiceProvider
                          \App\Http\Handlers\Admin\Order\UpdateHandler::class);
         $this->app->bind(\App\Http\Handlers\Admin\Order\DeleteHandlerContract::class,
                          \App\Http\Handlers\Admin\Order\DeleteHandler::class);
+
+        $this->app->bind(\App\Http\Handlers\Admin\Position\ListHandlerContract::class,
+                         \App\Http\Handlers\Admin\Position\ListHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Position\StoreHandlerContract::class,
+                         \App\Http\Handlers\Admin\Position\StoreHandler::class);
+        $this->app->bind(\App\Http\Commands\Admin\CreatePositionCommandHandlerContract::class,
+                         \App\Http\Commands\Admin\CreatePositionCommandHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Position\UpdateHandlerContract::class,
+                         \App\Http\Handlers\Admin\Position\UpdateHandler::class);
+        $this->app->bind(\App\Http\Handlers\Admin\Position\DeleteHandlerContract::class,
+                         \App\Http\Handlers\Admin\Position\DeleteHandler::class);
     }
 
     /**
@@ -82,5 +94,6 @@ class AppServiceProvider extends ServiceProvider
         Format::observe(FormatObserver::class);
         Type::observe(TypeObserver::class);
         Order::observe(OrderObserver::class);
+        Position::observe(PositionObserver::class);
     }
 }

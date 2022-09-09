@@ -9,6 +9,26 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function (){
     Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main.index');
 
+//    Route::group(['namespace' => 'User', 'prefix' => 'user'], function (){
+//        Route::get('/', 'ListController')->name('admin.user.index');
+//        Route::get('/create','CreateController')->name('admin.user.create');
+//        Route::post('/', 'StoreController')->name('admin.user.store');
+//        Route::get('/{user}', 'ShowController')->name('admin.user.show');
+//        Route::get('/{user}/edit', 'EditController')->name('admin.user.edit');
+//        Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
+//        Route::delete('/{user}', 'DeleteController')->name('admin.user.delete');
+//    });
+
+    Route::group(['namespace' => 'Position', 'prefix' => 'position'], function (){
+        Route::get('/', 'ListController')->name('admin.position.index');
+        Route::get('/create','CreateController')->name('admin.position.create');
+        Route::post('/', 'StoreController')->name('admin.position.store');
+        Route::get('/{position}', 'ShowController')->name('admin.position.show');
+        Route::get('/{position}/edit', 'EditController')->name('admin.position.edit');
+        Route::patch('/{position}', 'UpdateController')->name('admin.position.update');
+        Route::delete('/{position}', 'DeleteController')->name('admin.position.delete');
+    });
+
     Route::group(['namespace' => 'Order', 'prefix' => 'order'], function (){
         Route::get('/', 'ListController')->name('admin.order.index');
         Route::get('/create','CreateController')->name('admin.order.create');

@@ -9,6 +9,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.position.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Должности</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.order.index')}}" class="nav-link">
                         <i class="nav-icon far fa-clipboard"></i>
                         <p>Заказы</p>
@@ -16,13 +22,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.customer.index')}}" class="nav-link">
-                        <i class="nav-icon far fa-clipboard"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>Заказчики</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.type.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon far fa-clipboard"></i>
                         <p>Виды изданий</p>
                     </a>
                 </li>

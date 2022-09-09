@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Format;
 use App\Models\Order;
 use App\Models\Type;
+use App\Models\User;
 
 class MainController extends Controller
 {
@@ -19,6 +20,7 @@ class MainController extends Controller
         $data['booksCount'] = Book::all()->count();
         $data['typesCount'] = Type::all()->count();
         $data['formatsCount'] = Format::all()->count();
+        $data['usersCount'] = User::all()->count();
         return view('admin.main.index', compact('data'));
     }
 }
