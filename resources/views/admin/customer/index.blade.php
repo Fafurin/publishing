@@ -3,7 +3,7 @@
     <div class="content-wrapper">
         <section class="content">
             <div class="container-fluid">
-                <h3>Заказчики</h3>
+                <h3 class="text-center">Заказчики</h3>
                 <div class="row">
                     <table class="table table-hover text-nowrap">
                         <thead>

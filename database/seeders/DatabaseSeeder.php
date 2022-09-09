@@ -7,7 +7,9 @@ use App\Models\Book;
 use App\Models\Customer;
 use App\Models\Format;
 use App\Models\Order;
+use App\Models\Position;
 use App\Models\Type;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,5 +24,7 @@ class DatabaseSeeder extends Seeder
         Type::factory(20)->create();
         Format::factory(10)->create();
         Order::factory(30)->create();
+        Position::factory(10)->create();
+        User::factory(20)->create();
     }
 }

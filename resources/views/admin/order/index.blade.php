@@ -5,7 +5,7 @@
             <h3 class="text-center">Заказы</h3>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2 mb-3">
+                    <div class="col-2 m-3">
                         <a href="{{route('admin.order.create')}}" class="btn btn-block btn-primary">Новый заказ</a>
                     </div>
                     <div class="col-12">

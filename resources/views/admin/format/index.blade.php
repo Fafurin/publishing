@@ -2,9 +2,9 @@
 @section('content')
     <div class="content-wrapper">
         <section class="content">
-            <h3>Форматы изданий</h3>
+            <h3 class="text-center">Форматы изданий</h3>
             <div class="row">
-                <div class="mb-3">
+                <div class="m-3">
                     <a href="{{route('admin.format.create')}}" class="btn btn-block btn-primary">Новый формат издания</a>
                 </div>
                 <table class="table table-hover text-nowrap">
