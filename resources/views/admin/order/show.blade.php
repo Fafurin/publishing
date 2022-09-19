@@ -10,13 +10,6 @@
                            href="{{route('admin.order.edit', $order->id)}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <form action="{{route('admin.order.delete', $order->id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="border-0 bg-transparent">
-                                <i class="fas fa-trash text-danger" role="button"></i>
-                            </button>
-                        </form>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -28,7 +21,6 @@
                 </div>
             </div>
         </div>
-
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -58,7 +50,7 @@
                                     </tr>
                                     <tr>
                                         <th>Статус заказа</th>
-                                        <td>{{ $order->status }}</td>
+                                        <td>{{ $order->status->title }}</td>
                                     </tr>
                                     <tr>
                                         <th>Сроки</th>

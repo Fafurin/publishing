@@ -9,9 +9,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.user.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Сотрудники</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.task.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Задачи</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.position.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Должности</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.role.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Роли пользователей</p>
                     </a>
                 </li>
                 <li class="nav-item">

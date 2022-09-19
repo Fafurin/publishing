@@ -22,7 +22,10 @@ return new class extends Migration {
                 ->index()
                 ->constrained('books');
             $table->enum('payment', ['contract', 'receipt'])->default('contract');
-            $table->enum('status', ['standing_by', 'in_work', 'in_archive'])->default('standing_by');
+            $table->foreignId('status_id')
+                ->default(1)
+                ->index()
+                ->constrained('statuses');
             $table->string('deadline')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

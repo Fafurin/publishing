@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Position;
 
-use App\Http\Handlers\Admin\Position\StoreHandler;
+use App\Http\Handlers\Admin\User\Position\StoreHandler;
 use Illuminate\Http\RedirectResponse;
 
 class StoreController implements StoreControllerContract

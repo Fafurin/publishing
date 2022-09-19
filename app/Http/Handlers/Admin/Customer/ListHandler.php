@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Cache;
 
 class ListHandler implements ListHandlerContract
 {
-    // возвращаем всех закешированных заказчиков
     public function handle()
     {
         return Cache::remember('customers', 60 * 60 * 24, function () {

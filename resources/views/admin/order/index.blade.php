@@ -2,7 +2,7 @@
 @section('content')
     <div class="content-wrapper">
         <section class="content">
-            <h3 class="text-center">Заказы</h3>
+            <h3 class="text-center">Новые заказы</h3>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-2 m-3">
@@ -24,7 +24,8 @@
                                     <tbody>
                                     @foreach($orders as $order)
                                         <tr>
-                                            <td>{{ $order->book->title }}</td>
+                                            <td><a href="{{route('admin.order.show', $order->book->id)}}">{{ $order->book->title }}</a></td>
+
                                             <td>{{ $order->book->type->title }}</td>
                                             <td>{{ $order->book->format->title }}</td>
                                             <td><a href="{{route('admin.customer.show', $order->customer->id)}}">{{ $order->customer->name }}</a></td>
@@ -37,20 +38,23 @@
                                                    href="{{route('admin.order.edit', $order->id)}}">
                                                     <i class="fas fa-pencil-alt"></i></a>
                                             </td>
-                                            <td>
-                                                <form action="{{route('admin.order.delete', $order->id)}}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="border-0 bg-transparent">
-                                                        <i class="fas fa-trash text-danger" role="button"></i>
-                                                    </button>
-                                                </form>
+                                            <td><a class="text-success"
+                                                   href="{{route('admin.task.create', $order->id)}}">
+                                                    <i class="fas fa-pencil-alt"></i></a>
                                             </td>
+{{--                                            <td>--}}
+{{--                                                <form action="{{route('admin.order.delete', $order->id)}}" method="POST">--}}
+{{--                                                    @csrf--}}
+{{--                                                    @method('DELETE')--}}
+{{--                                                    <button type="submit" class="border-0 bg-transparent">--}}
+{{--                                                        <i class="fas fa-trash text-danger" role="button"></i>--}}
+{{--                                                    </button>--}}
+{{--                                                </form>--}}
+{{--                                            </td>--}}
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>

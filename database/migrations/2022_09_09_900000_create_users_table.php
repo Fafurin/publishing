@@ -19,12 +19,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('profile_id')
+            $table->foreignId('profile_id')->nullable()
                 ->index()
                 ->constrained('profiles');
-            $table->foreignId('position_id')
+            $table->foreignId('position_id')->nullable()
                 ->index()
                 ->constrained('positions');
+            $table->foreignId('role_id')->nullable()
+                ->index()
+                ->constrained('roles');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

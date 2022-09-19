@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Position;
 
-use App\Http\Handlers\Admin\Position\ListHandlerContract;
+use App\Http\Handlers\Admin\User\Position\ListHandlerContract;
 use Illuminate\View\View;
 
 class ListController implements ListControllerContract

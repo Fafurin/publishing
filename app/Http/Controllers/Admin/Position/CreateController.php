@@ -8,6 +8,6 @@ class CreateController implements CreateControllerContract
 {
     public function __invoke(): View
     {
-        return view('admin.position.create');
+        return view('admin.user.position.create');
     }
 }

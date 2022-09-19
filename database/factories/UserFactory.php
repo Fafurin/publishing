@@ -26,6 +26,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_id' => Profile::factory()->create(),
             'position_id' => $this->faker->numberBetween(1,10),
+            'role_id' => $this->faker->numberBetween(1,4),
         ];
     }
 

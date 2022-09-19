@@ -7,5 +7,5 @@ use Illuminate\Http\RedirectResponse;
 
 interface DeleteControllerContract extends OrderControllerContract
 {
-    public function __invoke(Order $type): RedirectResponse;
+    public function __invoke(Order $order): RedirectResponse;
 }

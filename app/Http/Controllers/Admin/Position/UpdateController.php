@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Position;
 
-use App\Http\Handlers\Admin\Position\UpdateHandlerContract;
+use App\Http\Handlers\Admin\User\Position\UpdateHandlerContract;
 use App\Models\Position;
 use Illuminate\View\View;
 

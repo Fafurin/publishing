@@ -23,7 +23,7 @@ class OrderFactory extends Factory
             'customer_id' => Customer::factory()->create(),
             'book_id' => Book::factory()->create(),
             'payment' => $this->faker->regexify('(contract|receipt)'),
-            'status' => $this->faker->regexify('(standing_by|in_work|in_archive)'),
+            'status_id' => $this->faker->numberBetween(1,3),
             'deadline' => $this->faker->sentence(2),
             'description' => $this->faker->paragraph(2, true),
             'created_at' => $this->faker->dateTime(),

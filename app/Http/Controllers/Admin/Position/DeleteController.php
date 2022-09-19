@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Position;
 
-use App\Http\Handlers\Admin\Position\DeleteHandlerContract;
+use App\Http\Handlers\Admin\User\Position\DeleteHandlerContract;
 use App\Models\Position;
 use Illuminate\Http\RedirectResponse;
 
