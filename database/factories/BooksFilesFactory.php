@@ -17,7 +17,9 @@ class BooksFilesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'book_id' => $this->faker->numberBetween(1,30),
+            'path' => $this->faker->url(),
+            'description' => $this->faker->realText(),
         ];
     }
 }

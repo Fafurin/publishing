@@ -9,6 +9,6 @@ class ListHandler implements ListHandlerContract
 
     public function handle()
     {
-        return Task::orderBy('created_at', 'DESC')->get();
+        return Task::orderBy('started_at', 'DESC')->get();
     }
 }

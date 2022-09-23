@@ -32,7 +32,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -46,20 +46,20 @@
                                         <td>{{ $task->user->name }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Заказ</th>
-                                        <td>{{ $task->order->number }}</td>
+                                        <th>Название издания</th>
+                                        <td>{{ $task->order->book->title }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Название</th>
-                                        <td>{{ $task->order->book->title }}</td>
+                                        <th>Формат издания</th>
+                                        <td>{{ $task->order->book->format->title }} ({{ $task->order->book->format->size }})</td>
                                     </tr>
                                     <tr>
                                         <th>Вид издания</th>
                                         <td>{{ $task->order->book->type->title }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Формат издания</th>
-                                        <td>{{ $task->order->book->format->title }} ({{ $task->order->book->format->size }})</td>
+                                        <th>Номер заказа</th>
+                                        <td>{{ $task->order->number }}</td>
                                     </tr>
                                     <tr>
                                         <th>Оплата</th>
@@ -86,6 +86,22 @@
                                         <td>{{ $task->order->description }}</td>
                                     </tr>
                                     <tr>
+                                        <th>Файлы</th>
+                                        @foreach($task->order->book->booksFiles as $file)
+                                            <td class="d-block" ><a href="{{ asset('storage') . '/' . $file->path}}">{{ $file->path }}</a></td>
+                                        @endforeach
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <tbody>
+                                    <tr>
                                         <th>Заказчик</th>
                                         <td>
                                             <a href="{{route('admin.customer.show', $task->order->customer->id)}}">{{ $task->order->customer->name }}</a>
@@ -98,12 +114,6 @@
                                     <tr>
                                         <th>E-mail</th>
                                         <td>{{ $task->order->customer->email }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Файлы</th>
-                                        @foreach($task->order->book->booksFiles as $file)
-                                            <td class="d-block" ><a href="{{ asset('storage') . '/' . $file->path}}">{{ $file->path }}</a></td>
-                                        @endforeach
                                     </tr>
                                     </tbody>
                                 </table>

@@ -26,8 +26,8 @@ class OrderFactory extends Factory
             'status_id' => $this->faker->numberBetween(1,3),
             'deadline' => $this->faker->sentence(2),
             'description' => $this->faker->paragraph(2, true),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'started_at' => $this->faker->dateTime(),
+            'finished_at' => $this->faker->dateTime(),
         ];
     }
 }

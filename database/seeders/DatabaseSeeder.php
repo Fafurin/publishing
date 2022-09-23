@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Book;
+use App\Models\BooksFiles;
 use App\Models\Customer;
 use App\Models\Format;
 use App\Models\Order;
@@ -32,5 +33,6 @@ class DatabaseSeeder extends Seeder
         Role::factory(4)->create();
         User::factory(20)->create();
         Task::factory(40)->create();
+        BooksFiles::factory(50)->create();
     }
 }

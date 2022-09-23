@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreignId('output_information_id')
                 ->index()
                 ->constrained('output_information');
-            $table->timestamps();
         });
     }
 

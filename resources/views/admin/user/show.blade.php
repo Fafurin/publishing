@@ -57,11 +57,39 @@
                                         <th>E-mail</th>
                                         <td>{{$user->email}}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Задачи</th>
-                                        @foreach($user->tasks as $task)
-                                            <td class="d-block" ><a href="{{route('admin.task.show', $task->id)}}">{{ $task->title }}</a></td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h5 class="text-center">Задачи</h5>
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <tbody>
+                                    <th>Задача</th>
+                                    <th>Статус</th>
+                                    <th>Начало работы</th>
+                                    <th>Завершение работы</th>
+
+                                    @foreach($user->tasks as $task)
+                                            <tr>
+                                            <th>
+                                                <a href="{{route('admin.task.show', $task->id)}}">{{ $task->title }}</a>
+                                            </th>
+                                                <th>
+                                                    {{ $task->order->status->title }}
+                                                </th>
+                                                <th>
+                                                    {{ $task->started_at }}
+                                                </th>
+                                                <th>
+                                                    {{ $task->finished_at }}
+                                                </th>
+                                            </tr>
                                         @endforeach
+                                    <tr>
+                                        <th>Производительность</th>
+                                        <td>{{ $count }} уч.-изд. л</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -70,6 +98,47 @@
                     </div>
                 </div>
             </div>
+            {{--            <div class="container-fluid">--}}
+            {{--                <h4>Производительность</h4>--}}
+            {{--                <div class="row">--}}
+            {{--                    <div class="col-12">--}}
+            {{--                        <div class="card">--}}
+            {{--                            <div class="card-body table-responsive p-0">--}}
+            {{--                                <table class="table table-hover text-nowrap">--}}
+            {{--                                    <tbody>--}}
+            {{--                                    <tr>--}}
+            {{--                                        <th>Имя</th>--}}
+            {{--                                        <td>{{$user->name}}</td>--}}
+            {{--                                    </tr>--}}
+            {{--                                    <tr>--}}
+            {{--                                        <th>Должность</th>--}}
+            {{--                                        <td>{{$user->position->title}}</td>--}}
+            {{--                                    </tr>--}}
+            {{--                                    <tr>--}}
+            {{--                                        <th>Роль</th>--}}
+            {{--                                        <td>{{$user->role->title}}</td>--}}
+            {{--                                    </tr>--}}
+            {{--                                    <tr>--}}
+            {{--                                        <th>Телефон</th>--}}
+            {{--                                        <td>{{$user->profile->phone}}</td>--}}
+            {{--                                    </tr>--}}
+            {{--                                    <tr>--}}
+            {{--                                        <th>E-mail</th>--}}
+            {{--                                        <td>{{$user->email}}</td>--}}
+            {{--                                    </tr>--}}
+            {{--                                    <tr>--}}
+            {{--                                        <th>Задачи</th>--}}
+            {{--                                        @foreach($user->tasks as $task)--}}
+            {{--                                            <td class="d-block" ><a href="{{route('admin.task.show', $task->id)}}">{{ $task->title }}</a></td>--}}
+            {{--                                        @endforeach--}}
+            {{--                                    </tr>--}}
+            {{--                                    </tbody>--}}
+            {{--                                </table>--}}
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </section>
     </div>
 @endsection

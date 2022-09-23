@@ -13,6 +13,8 @@ class Customer extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     public function orders()
     {
         return $this->hasMany(Order::class);

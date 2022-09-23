@@ -28,7 +28,9 @@ return new class extends Migration {
                 ->constrained('statuses');
             $table->string('deadline')->nullable();
             $table->text('description')->nullable();
-            $table->timestamps();
+            $table->date('started_at')->default(null);
+            $table->date('finished_at')->default(null);
+            $table->softDeletes();
         });
     }
 

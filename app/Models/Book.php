@@ -11,6 +11,8 @@ class Book extends Model
 
     public $table = 'books';
 
+    public $timestamps = false;
+
     protected $guarded = [];
 
     public function format()

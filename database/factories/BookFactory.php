@@ -22,9 +22,7 @@ class BookFactory extends Factory
             'title' => $this->faker->sentence(5),
             'type_id' => $this->faker->numberBetween(1, 20),
             'format_id' => $this->faker->numberBetween(1, 10),
-            'output_information_id' => OutputInformation::factory()->create(),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'output_information_id' => OutputInformation::factory()->create()
         ];
     }
 }

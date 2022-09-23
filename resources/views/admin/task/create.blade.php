@@ -22,7 +22,7 @@
                         <label>Исполнитель
                             <select name="user_id" class="form-control select2" style="width: 100%;">
                                 @foreach($data['users'] as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    <option value="{{ $user->id }}">{{ $user->name }} (в работе {{ count($user->tasks) }} заказа)</option>
                                 @endforeach
                             </select>
                         </label>

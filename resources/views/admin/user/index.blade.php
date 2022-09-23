@@ -12,8 +12,6 @@
                     <tr>
                         <th>Имя</th>
                         <th>Задачи</th>
-                        <th>Должность</th>
-                        <th>Телефон</th>
                         <th colspan="2">Действия</th>
                     </tr>
                     </thead>
@@ -22,8 +20,6 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ count($user->tasks) }}</td>
-                            <td>{{ $user->position->title }}</td>
-                            <td>{{ $user->profile->phone }}</td>
                             <td>
                                 <a href="{{route('admin.user.show', $user->id)}}">
                                     <i class="far fa-eye"></i>
@@ -33,15 +29,6 @@
                                    href="{{route('admin.user.edit', $user->id)}}">
                                     <i class="fas fa-pencil-alt"></i></a>
                             </td>
-{{--                            <td>--}}
-{{--                                <form action="{{route('admin.user.delete', $user->id)}}" method="POST">--}}
-{{--                                    @csrf--}}
-{{--                                    @method('DELETE')--}}
-{{--                                    <button type="submit" class="border-0 bg-transparent">--}}
-{{--                                        <i class="fas fa-trash text-danger" role="button"></i>--}}
-{{--                                    </button>--}}
-{{--                                </form>--}}
-{{--                            </td>--}}
                         </tr>
                     </tbody>
                     @endforeach

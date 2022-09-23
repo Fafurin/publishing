@@ -2,13 +2,13 @@
 @section('content')
     <div class="content-wrapper">
         <section class="content">
-            <h3>Новый заказ</h3>
+            <h3 class="text-center">Новый заказ</h3>
             <form action="{{ route('admin.order.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Название
+                            <label>Название издания
                                 <input type="text" value="{{ old('title') }}" name="title" class="form-control">
                             </label>
                             @error('title')
@@ -35,7 +35,7 @@
                             <label>Формат издания
                                 <select name="format_id" class="form-control select2" style="width: 100%;">
                                     @foreach($data['formats'] as $format)
-                                        <option value="{{ $format->id }}">{{ $format->title }}</option>
+                                        <option value="{{ $format->id }}">{{ $format->title }} ({{ $format->size }})</option>
                                     @endforeach
                                 </select>
                             </label>
