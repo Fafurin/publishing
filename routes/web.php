@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('personal.main.index');
+})->middleware('auth', 'verified');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['admin', 'auth', 'verified']], function () {
     Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main.index');
@@ -89,9 +89,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['adm
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
-    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
-        Route::get('/', 'MainController')->name('personal.main.index');
-    });
+    Route::get('/', 'MainController')->name('personal.main.index');
+//    Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main.index');
+
     Route::group(['namespace' => 'Task', 'prefix' => 'task'], function () {
         Route::get('/', 'ListController')->name('personal.task.index');
         Route::get('/{task}', 'ShowController')->name('personal.task.show');

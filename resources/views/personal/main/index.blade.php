@@ -4,7 +4,7 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="col-sm-12">
-                    <h1 class="m-0 text-center">Личный кабинет</h1>
+                    <h1 class="m-0 text-right">Личный кабинет</h1>
                 </div>
             </div>
         </div>
