@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Админка</title>
+    <title>Личный кабинет</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -49,7 +49,7 @@
         </div>
     </nav>
     <!-- /.navbar -->
-    @include('admin.includes.sidebar')
+    @include('personal.includes.sidebar')
     @yield('content')
 
     <footer class="main-footer">

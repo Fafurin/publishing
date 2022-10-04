@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['admin', 'auth', 'verified']], function () {
     Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main.index');
 
     Route::group(['namespace' => 'User', 'prefix' => 'user'], function () {
@@ -85,6 +85,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/{customer}', 'ShowController')->name('admin.customer.show');
         Route::get('/{customer}/edit', 'EditController')->name('admin.customer.edit');
         Route::patch('/{customer}', 'UpdateController')->name('admin.customer.update');
+    });
+});
+
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
+    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+        Route::get('/', 'MainController')->name('personal.main.index');
+    });
+    Route::group(['namespace' => 'Task', 'prefix' => 'task'], function () {
+        Route::get('/', 'ListController')->name('personal.task.index');
+        Route::get('/{task}', 'ShowController')->name('personal.task.show');
     });
 });
 

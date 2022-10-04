@@ -4,6 +4,7 @@ namespace App\Http\Commands\Admin;
 
 use App\Models\Order;
 use App\Models\Task;
+use Illuminate\Support\Facades\Date;
 
 class CreateTaskCommandHandler implements CreateTaskCommandHandlerContract
 {
@@ -18,6 +19,10 @@ class CreateTaskCommandHandler implements CreateTaskCommandHandlerContract
         $order = Order::find($data['order_id']);
 
         $order->update($orderData);
+
+        // в колонку started_at записываем текущую дату
+
+        $data['started_at'] = Date::now();
 
         Task::firstOrCreate($data);
 

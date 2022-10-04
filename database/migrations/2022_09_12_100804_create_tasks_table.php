@@ -25,8 +25,8 @@ return new class extends Migration
             $table->foreignId('status_id')
                 ->index()
                 ->constrained('statuses');
-            $table->date('started_at')->default(null);
-            $table->date('finished_at')->default(null);
+            $table->date('started_at')->nullable();
+            $table->date('finished_at')->nullable();
             $table->softDeletes();
         });
     }
